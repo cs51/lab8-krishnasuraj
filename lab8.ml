@@ -226,8 +226,8 @@ waiting for the publish event.
 ......................................................................*)
 
 let receive_report (s : string) : unit = 
-  fun _ -> failwith "not implemented" ;;
-  (* let _ = add_listener publish arg in () ;; *)
+  ignore (add_listener publish (fun () -> buzzFake s));
+  ignore (add_listener publish (fun () -> fakeNewsNetwork s)) ;;
 
 (*......................................................................
 Exercise 10: Register the receieve_report listener to listen for the
